@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>YouTube Clone</title>
+</head>
+<body>
+  <!-- header starts -->
+  <div class="header">
+    <div class="header__left">
+      <i class="material-icons" id="hide">menu</i>
+      <img src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" alt="YouTube Logo">
+    </div>
+    <div class="header__search">
+      <form action="">
+        <input type="text" placeholder="Search" />
+        <button type="submit">
+          <i class="material-icons">search</i>
+        </button>
+      </form>
+    </div>
+    <div class="header__icons">
+      <i class="material-icons">videocam</i>
+      <i class="material-icons">apps</i>
+      <i class="material-icons">notifications</i>
+      <i class="material-icons">account_circle</i>
+    </div>
+  </div>
+  <!-- header ends -->
+
+  <!-- main body starts -->
+  <div class="mainBody">
+    <!-- sidebar starts -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar__categories">
+        <div class="sidebar__category">
+          <i class="material-icons">home</i>
+          <span>Home</span>
+        </div>
+        <div class="sidebar__category">
+          <i class="material-icons">local_fire_department</i>
+          <span>Trending</span>
+        </div>
+        <div class="sidebar__category">
+          <i class="material-icons">subscriptions</i>
+          <span>Subscriptions</span>
+        </div>
+      </div>
+      <hr />
+      <div class="sidebar__categories">
+        <div class="sidebar__category">
+          <i class="material-icons">library_add_check</i>
+          <span>Library</span>
+        </div>
+        <div class="sidebar__category">
+          <i class="material-icons">history</i>
+          <span>History</span>
+        </div>
+        <div class="sidebar__category">
+          <i class="material-icons">play_arrow</i>
+          <span>Your Videos</span>
+        </div>
+        <div class="sidebar__category">
+          <i class="material-icons">watch_later</i>
+          <span>Watch Later</span>
+        </div>
+        <div class="sidebar__category">
+          <i class="material-icons">thumb_up</i>
+          <span>Liked Videos</span>
+        </div>
+      </div>
+      <hr />
+    </div>
+    <!-- sidebar ends -->
+    <div class="videos">
+      <h1>RECOMMENDED</h1>
+      <div id="videosContainer" class="videos_container">
+        
+          <!-- Videos will be loaded here dynamically -->
+        
+
+      </div>
+    </div>
+   
+    <!-- main body ends -->
+  </div>
+<script src="./videoloader.js"></script>
+<script src="themeSwitcher.js"></script>
+<script>
+  // Select the menu icon and sidebar
+  const menuIcon = document.getElementById('hide');
+  const sidebar = document.getElementById('sidebar');
+  const videosDiv = document.querySelector('.videos');
+
+  // Add a click event to toggle sidebar visibility and adjust video width
+  menuIcon.addEventListener('click', () => {
+    sidebar.classList.toggle('hidden');
+    
+    // If the sidebar is hidden, set the videos div to 100% width
+    if (sidebar.classList.contains('hidden')) {
+    videosDiv.style.marginLeft = '0';  // Set margin-left to 0 when sidebar is hidden
+   } else {
+   videosDiv.style.marginLeft = '240px';  // Adjust margin-left to accommodate the sidebar when visible
+   }
+  });
+</script>
+
+</body>
+</html>
